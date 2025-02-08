@@ -5,6 +5,7 @@ import androidx.activity.ComponentActivity
 import androidx.activity.compose.setContent
 import androidx.activity.enableEdgeToEdge
 import androidx.compose.foundation.layout.Column
+import androidx.compose.foundation.layout.PaddingValues
 import androidx.compose.foundation.layout.fillMaxSize
 import androidx.compose.foundation.layout.padding
 import androidx.compose.material3.Scaffold
@@ -12,6 +13,7 @@ import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.tooling.preview.Preview
+import androidx.compose.ui.unit.sp
 import com.mnp.jetpackcompose.ui.theme.JetpackComposeTheme
 
 class MainActivity : ComponentActivity() {
@@ -21,7 +23,7 @@ class MainActivity : ComponentActivity() {
         setContent {
             JetpackComposeTheme {
                 Scaffold(modifier = Modifier.fillMaxSize()) { innerPadding ->
-                    HelloWorld()
+                    HelloWorld(innerPadding)
                 }
             }
         }
@@ -29,12 +31,15 @@ class MainActivity : ComponentActivity() {
 }
 
 @Composable
-fun HelloWorld(){
-    Column {
-        var counter = 0
-        repeat(10){
-            counter++
-            Text(text = "$counter Hello World!")
+fun HelloWorld(innerPadding: PaddingValues){
+    Column (
+        modifier = Modifier.padding(innerPadding)
+    ){
+        repeat(10){counter ->
+            Text(
+                text = "$counter. Hello World!",
+                fontSize = 30.sp
+            )
         }
     }
 }
@@ -43,6 +48,6 @@ fun HelloWorld(){
 @Composable
 fun GreetingPreview() {
     JetpackComposeTheme {
-        HelloWorld()
+        HelloWorld(PaddingValues())
     }
 }

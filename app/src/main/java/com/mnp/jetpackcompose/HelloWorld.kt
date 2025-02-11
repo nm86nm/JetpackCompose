@@ -19,7 +19,6 @@ fun HelloWorld(innerPadding: PaddingValues){
         verticalArrangement = Arrangement.Center
     ){
         repeat(10){counter ->
-
             Text(
                 text = "$counter. Hello World!",
                 fontSize = 30.sp

@@ -17,6 +17,7 @@ class MainActivity : ComponentActivity() {
             JetpackComposeTheme {
                 Scaffold(modifier = Modifier.fillMaxSize()) { innerPadding ->
                     HelloWorld(innerPadding)
+                    Page1()
                 }
             }
         }
